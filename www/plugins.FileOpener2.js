@@ -24,7 +24,7 @@ CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 */
 var exec = require('cordova/exec');
 
-function FileOpener2() {}
+function FileOpener2() { }
 
 FileOpener2.prototype.open = function (fileName, contentType, callbackContext) {
     contentType = contentType || '';
@@ -36,16 +36,6 @@ FileOpener2.prototype.showOpenWithDialog = function (fileName, contentType, call
     contentType = contentType || '';
     callbackContext = callbackContext || {};
     exec(callbackContext.success || null, callbackContext.error || null, 'FileOpener2', 'open', [fileName, contentType, false]);
-};
-
-FileOpener2.prototype.uninstall = function (packageId, callbackContext) {
-    callbackContext = callbackContext || {};
-    exec(callbackContext.success || null, callbackContext.error || null, 'FileOpener2', 'uninstall', [packageId]);
-};
-
-FileOpener2.prototype.appIsInstalled = function (packageId, callbackContext) {
-    callbackContext = callbackContext || {};
-    exec(callbackContext.success || null, callbackContext.error || null, 'FileOpener2', 'appIsInstalled', [packageId]);
 };
 
 module.exports = new FileOpener2();
